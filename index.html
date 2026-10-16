@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuki Ip — Music &amp; Travel Series Reel</title>
+  <meta name="description"
+    content="City documentary, music culture and an AI host on camera. Interview-led editing, sound and color for a music and travel series.">
+  <style>
+    /* ============================================================
+     REEL TEMPLATE — worked example (this copy is the lecture reel).
+
+     Keep this whole <style> block VERBATIM in every reel — the warm-paper
+     editorial design is the house style and should not drift between jobs.
+     Rewrite only the BODY content: <title>/meta, masthead headline + lede,
+     the gap-note, the index nav, and one <section class="work"> per video.
+
+     Each video section is framed for ONE buyer-relevant point. Below, the
+     framing register is lecture/interview craft; for a different job, change
+     the register (e.g. short-form hooks, brand-film polish) but keep the
+     same HTML structure and the ".demo" callout naming the relevant decision.
+     ============================================================ */
+
+    :root {
+      --paper: #f4f1ea;
+      --paper-2: #ebe6db;
+      --ink: #1c1a17;
+      --ink-soft: #4a463f;
+      --ink-faint: #8a8478;
+      --line: #d8d2c4;
+      --line-strong: #bcb4a2;
+
+      --accent: #7c3a2f;
+      --craft: #9a6a1d;
+
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      --mono: "SF Mono", ui-monospace, "JetBrains Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+
+      --maxw: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.6;
+      background-image:
+        radial-gradient(circle at 20% 0%, rgba(0, 0, 0, 0.015), transparent 60%),
+        radial-gradient(circle at 90% 100%, rgba(0, 0, 0, 0.02), transparent 55%);
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    ::selection {
+      background: rgba(124, 58, 47, 0.20);
+    }
+
+    /* ---------- masthead ---------- */
+    header.masthead {
+      padding: 64px 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .kicker {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin: 0 0 22px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .kicker .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    h1.title {
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 18px;
+      font-weight: 600;
+    }
+
+    h1.title em {
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+
+    .lede {
+      font-size: clamp(18px, 2.4vw, 22px);
+      max-width: 64ch;
+      color: var(--ink-soft);
+      margin: 0 0 6px;
+    }
+
+    /* ---------- the note ---------- */
+    .gap-note {
+      margin: 40px 0 8px;
+      border-left: 3px solid var(--accent);
+      background: rgba(124, 58, 47, 0.055);
+      padding: 20px 24px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .gap-note .gn-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 8px;
+      font-weight: 600;
+    }
+
+    .gap-note p {
+      margin: 0;
+      font-size: 17px;
+      color: var(--ink-soft);
+    }
+
+    .gap-note strong {
+      color: var(--ink);
+    }
+
+    /* ---------- index nav ---------- */
+    .index {
+      margin: 44px 0 4px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .index a {
+      text-decoration: none;
+      color: var(--ink);
+      padding: 16px 18px;
+      border-right: 1px solid var(--line);
+      position: relative;
+      transition: background .18s ease;
+      display: block;
+    }
+
+    .index a:last-child {
+      border-right: none;
+    }
+
+    .index a:hover {
+      background: var(--paper-2);
+    }
+
+    .index a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .index .num {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.1em;
+    }
+
+    .index .nm {
+      font-weight: 600;
+      font-size: 16px;
+      margin-top: 4px;
+      line-height: 1.2;
+    }
+
+    .index .tp {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--ink-faint);
+      margin-top: 6px;
+    }
+
+    /* ---------- work sections ---------- */
+    section.work {
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .work-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .work-index {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--ink-faint);
+      letter-spacing: 0.1em;
+    }
+
+    .seg-chip {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--accent);
+    }
+
+    h2.work-title {
+      font-size: clamp(28px, 4.5vw, 40px);
+      margin: 6px 0 4px;
+      letter-spacing: -0.015em;
+      font-weight: 600;
+    }
+
+    .credit {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--ink-faint);
+      margin: 0 0 18px;
+    }
+
+    .work-sub {
+      color: var(--ink-soft);
+      margin: 0 0 28px;
+      max-width: 62ch;
+    }
+
+    /* video embed */
+    .video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #15130f;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ---------- "what it demonstrates" block ---------- */
+    .demo {
+      margin-top: 30px;
+      border: 1px solid rgba(154, 106, 29, 0.38);
+      background: rgba(154, 106, 29, 0.06);
+      border-radius: 6px;
+      padding: 20px 24px;
+    }
+
+    .demo .demo-tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--craft);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .demo p {
+      margin: 0;
+      font-size: 16.5px;
+      color: var(--ink-soft);
+    }
+
+    .demo strong {
+      color: var(--ink);
+    }
+
+    /* ---------- closing ---------- */
+    footer.close {
+      padding: 60px 0 90px;
+    }
+
+    footer.close .ct {
+      font-size: clamp(22px, 3.4vw, 30px);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin: 0 0 14px;
+    }
+
+    footer.close p {
+      color: var(--ink-soft);
+      max-width: 60ch;
+      margin: 0 0 10px;
+    }
+
+    footer.close a.mail {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .sig {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+      margin-top: 26px;
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 720px) {
+      .index {
+        grid-template-columns: 1fr;
+      }
+
+      .index a {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      body {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header class="masthead">
+      <p class="kicker"><span class="dot"></span> Yuki Ip &nbsp;·&nbsp; Music &amp; travel series reel</p>
+      <h1 class="title">Real people, real places, <em>and a host who isn't.</em></h1>
+      <p class="lede">
+        A city told through the people who run its small places. A host who walks us in.
+        Edits cut to the music, street sound, and a story that holds for half an hour. Five pieces below,
+        each showing one part of the show you're building.
+      </p>
+
+      <div class="gap-note">
+        <p class="gn-tag">◆ On these pieces</p>
+        <p>
+          Four are broadcast work for <strong>CNA, Discovery and Lonely Planet</strong>. One is my own
+          <strong>AI character</strong>, built and run end to end. Each note names the one choice that
+          matters for a <strong>city-by-city music series with an AI presenter</strong>.
+        </p>
+      </div>
+
+      <nav class="index" aria-label="Reel index">
+        <a href="#vietnam">
+          <span class="num">01</span>
+          <div class="nm">Millennial Investor — Vietnam</div>
+          <div class="tp">Host-led · One city, one episode</div>
+        </a>
+        <a href="#jj">
+          <span class="num">02</span>
+          <div class="nm">JJ Befuddlez — Street vlog</div>
+          <div class="tp">AI character · Talking to camera</div>
+        </a>
+        <a href="#korea">
+          <span class="num">03</span>
+          <div class="nm">Hip Korea — Rain</div>
+          <div class="tp">Music-driven edit · City · Backstage</div>
+        </a>
+        <a href="#sixdegrees">
+          <span class="num">04</span>
+          <div class="nm">Lonely Planet's Six Degrees</div>
+          <div class="tp">Travel · Hosts meet locals</div>
+        </a>
+        <a href="#chef">
+          <span class="num">05</span>
+          <div class="nm">Refugee Chef — Anh Lê</div>
+          <div class="tp">Long-form profile · 23 minutes</div>
+        </a>
+      </nav>
+    </header>
+
+    <section class="work" id="vietnam">
+      <div class="work-head">
+        <span class="work-index">01</span>
+        <span class="seg-chip">Host-led series · CNA</span>
+      </div>
+      <h2 class="work-title">Millennial Investor — Vietnam</h2>
+      <p class="credit">Creative Director · Producer</p>
+      <p class="work-sub">
+        One episode of a five-country series. A host goes into one city and finds its story
+        through the people who run its food businesses.
+      </p>
+      <div class="video-frame">
+        <iframe loading="lazy" title="Millennial Investor — Vietnam"
+          src="https://players.brightcove.net/6057994443001/jC4rfpFdV4_default/index.html?videoId=1672939902094782635"
+          allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+      </div>
+      <p class="credit"><a href="https://www.channelnewsasia.com/watch/millennial-investor/fb-vietnam-1492286" target="_blank" rel="noopener">Watch on CNA ↗</a></p>
+      <div class="demo">
+        <p class="demo-tag">◆ Relevant to your series</p>
+        <p>
+          This is your format: <strong>one host, one city, one episode</strong>, built so the next
+          city can follow the same shape. The host opens doors, and the locals carry the story.
+        </p>
+      </div>
+    </section>
+
+    <section class="work" id="jj">
+      <div class="work-head">
+        <span class="work-index">02</span>
+        <span class="seg-chip">AI character · Own channel</span>
+      </div>
+      <h2 class="work-title">JJ Befuddlez — Street vlog</h2>
+      <p class="credit">Concept · AI pipeline · Edit · Sound</p>
+      <p class="work-sub">
+        One AI character talking to camera on a street, with voice and lip-sync matched.
+        The same character appears across every video on the channel.
+      </p>
+      <div class="video-frame">
+        <iframe loading="lazy" title="JJ Befuddlez — Street vlog"
+          src="https://play.gumlet.io/embed/6a40b95c8a92d68f43b0a92e" referrerpolicy="origin"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;clipboard-write;"></iframe>
+      </div>
+      <div class="demo">
+        <p class="demo-tag">◆ Relevant to your series</p>
+        <p>
+          This is the closest thing to <strong>Emma's on-camera intros</strong>. The hard part is
+          keeping her the same person in every city. I'd also tell you plainly if a shot of her
+          doesn't look real yet, and cut around it.
+        </p>
+      </div>
+    </section>
+
+    <section class="work" id="korea">
+      <div class="work-head">
+        <span class="work-index">03</span>
+        <span class="seg-chip">Music-driven edit · Discovery</span>
+      </div>
+      <h2 class="work-title">Hip Korea — Rain</h2>
+      <p class="credit">Edit · Sound &nbsp;|&nbsp; Broadcast on Discovery Channel</p>
+      <p class="work-sub">
+        Seoul's streets and nightlife, then backstage at a live music show, then a quiet
+        interview with the star before the big stage.
+      </p>
+      <div class="video-frame">
+        <iframe loading="lazy" title="Hip Korea — Rain"
+          src="https://play.gumlet.io/embed/6a4281a13583eb17263f53bd" referrerpolicy="origin"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;clipboard-write;"></iframe>
+      </div>
+      <div class="demo">
+        <p class="demo-tag">◆ Relevant to your series</p>
+        <p>
+          <strong>Music-driven editing is the core of what I do.</strong> The city montage is cut
+          to the beat, then the interview gets room to breathe. A record shop episode needs both
+          speeds, and the records themselves can set the rhythm.
+        </p>
+      </div>
+    </section>
+
+    <section class="work" id="sixdegrees">
+      <div class="work-head">
+        <span class="work-index">04</span>
+        <span class="seg-chip">Travel series · Lonely Planet · 2017</span>
+      </div>
+      <h2 class="work-title">Lonely Planet's Six Degrees</h2>
+      <p class="credit">Editor</p>
+      <p class="work-sub">
+        Hosts meet locals and follow them to the places they love. An older piece, so the
+        picture is low resolution. It's here for the format, not the pixels.
+      </p>
+      <div class="video-frame">
+        <iframe loading="lazy" title="Lonely Planet's Six Degrees"
+          src="https://www.youtube.com/embed/TpssKnaoezw" referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>
+      </div>
+      <p class="credit"><a href="https://www.youtube.com/watch?v=TpssKnaoezw" target="_blank" rel="noopener">Watch on YouTube ↗</a></p>
+      <div class="demo">
+        <p class="demo-tag">◆ Relevant to your series</p>
+        <p>
+          <strong>Travel told through people, not sights.</strong> Each local leads to the next,
+          the way one record shop owner can point you to the pub where the collectors drink.
+        </p>
+      </div>
+    </section>
+
+    <section class="work" id="chef">
+      <div class="work-head">
+        <span class="work-index">05</span>
+        <span class="seg-chip">Documentary profile · CNA</span>
+      </div>
+      <h2 class="work-title">Refugee Chef — Anh Lê</h2>
+      <p class="credit">Post-Directed · Edit · Sound &nbsp;|&nbsp; Series won a Gold World Medal, New York Festivals</p>
+      <p class="work-sub">
+        The full 23-minute film. A Vietnamese boat refugee builds a restaurant business in
+        Copenhagen, and the film ends with her cycling through the city she now calls home.
+      </p>
+      <div class="video-frame">
+        <iframe loading="lazy" title="Refugee Chef — Anh Lê"
+          src="https://play.gumlet.io/embed/6a4281d479d93c513c9e8fad" referrerpolicy="origin"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;clipboard-write;"></iframe>
+      </div>
+      <div class="demo">
+        <p class="demo-tag">◆ Relevant to your series</p>
+        <p>
+          <strong>Proof the length holds.</strong> Your episodes run 20 to 30 minutes. This one
+          keeps you watching through interviews, home scenes and the city itself.
+        </p>
+      </div>
+    </section>
+
+    <footer class="close">
+      <p class="ct">The through-line</p>
+      <p>
+        Real people in their own places, cut so the story holds for half an hour. And an AI
+        host I know how to keep believable, because I build one already.
+      </p>
+      <p>
+        <a class="mail" href="https://www.upwork.com/freelancers/~010414b5da3ca038af" target="_blank"
+          rel="noopener">View my Upwork profile</a>
+      </p>
+      <p class="sig">Yuki Ip · Editor</p>
+    </footer>
+
+  </div>
+</body>
+
+</html>
